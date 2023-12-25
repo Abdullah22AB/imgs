@@ -3,110 +3,59 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="master.css">
+    <title>digital clock</title>
+    
+    <style>
+        body{
+    background-image: url(https://images.unsplash.com/photo-1519821172144-4f87d85de2a1?q=80&w=1368&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D);
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+}
+.clock{
+    display: flex;
+    justify-content: center ;
+    align-items: center;
+    height: 100vh;
+    display: flex;
+    font-size: 70px;
+    font-weight:bold;
+
+    margin: auto;
+    font-family:'Times New Roman', Times, serif;
+    backdrop-filter:inherit;
+
+
+}
+
+    </style>
 </head>
 <body>
-    <div class="continer">
-        <div id="slider"> 
-            <div class="dp-wrap"> 
-              <div id="dp-slider">
-          
-                <div class="dp_item" data-class="1" data-position="1">
-                  <div class="dp-content">
-                    
-                    <h2>songs</h2>
-                    <p>  </p>
-                    <a href="#" class="site-btn">Read More…</a>
-                  </div>
-                  <div class="dp-img">
-                    <img class="img-fluid" src="pexels-doğukan-erbulut-17999663.jpg" alt="investing">
-                  </div>
-                </div>
-          
-                <div class="dp_item" data-class="2" data-position="2">
-                  <div class="dp-content">
-                    
-                    <h2>Slide 2</h2>
-                    <p> This is Slide 2 </p>
-                    <a href="#" class="site-btn">Read More…</a>
-                  </div>
-                  <div class="dp-img">
-                    <img class="img-fluid" src="pexels-matteo-milan-17057472.jpg" alt="investing">
-                  </div>
-                </div>
-          
-                <div class="dp_item" data-class="3" data-position="3">
-                  <div class="dp-content">
-                    
-                    <h2>Slide 3</h2>
-                    <p> This is Slide 3 </p>
-                    <a href="#" class="site-btn">Read More…</a>
-                  </div>
-                  <div class="dp-img">
-                    <img class="img-fluid" src="pexels-vika-glitter-16843611.jpg" alt="investing">
-                  </div>
-                </div>
-          
-                <div class="dp_item" data-class="4" data-position="4">
-                  <div class="dp-content">
-                    
-                    <h2>Slide 4</h2>
-                    <p> This is Slide 4 </p>
-                    <a href="#" class="site-btn">Read More…</a>
-                  </div>
-                  <div class="dp-img">
-                    <img class="img-fluid" src="pexels-vladimir-lapitoon-19549721.jpg" alt="investing">
-                  </div>
-                </div>
-              </div>
-              
-              <span id="dp-next">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 51.401 51.401">
-                  <defs>
-                    <style>
-                      .cls-1 {
-                        fill: none;
-                        stroke: deeppink;
-                        stroke-miterlimit: 10;
-                        stroke-width: 7px;
-                      }
-                    </style>
-                  </defs>
-                  <path id="Rectangle_4_Copy" data-name="Rectangle 4 Copy" class="cls-1" d="M32.246,0V33.178L0,31.953" transform="translate(0.094 25.276) rotate(-45)"/>
-                </svg>
-              </span>
-          
-              <span id="dp-prev">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 51.401 51.401">
-                  <defs>
-                    <style>
-                      .cls-1 {
-                        fill: none;
-                        stroke: #fa8c8c;
-                        stroke-miterlimit: 10;
-                        stroke-width: 7px;
-                      }
-                    </style>
-                  </defs>
-                  <path id="Rectangle_4_Copy" data-name="Rectangle 4 Copy" class="cls-1" d="M32.246,0V33.178L0,31.953" transform="translate(0.094 25.276) rotate(-45)"/>
-                </svg>
-              </span>
-          
-              
-          
-              <ul id="dp-dots">
-                <li data-class="1" class="active"></li>
-                <li data-class="2"></li>
-                <li data-class="3"></li>
-                <li data-class="4"></li>
-              </ul>
-            </div>
-          </div>
-    </div>
-    <script src="jquery-3.7.1.js"></script>
-    <script src="jquery-3.7.1.min.js"></script>
-    <script src="normal.js"></script>
+    <div class="clock"></div>
+    <script >function colok(){
+        let date = new Date();
+        let hours=date.getHours();
+        let minutes =date.getMinutes();
+        let seconds =date.getSeconds();
+        let flag='AM'
+        
+        if(hours ==0){//نهارا 
+            hours=12
+    
+        }
+        if(hours>12){// ظهرا
+        hours = hours -12;
+        flag='pm'
+        }
+        if(hours<10)hours="0"+hours;
+        if(minutes<10)minutes='0'+minutes;
+        if(seconds<10)seconds='0'+seconds;
+        document.querySelector('.clock').innerHTML=`${hours} : ${minutes} :${seconds} : ${flag}`;
+        setTimeout(function(){
+            colok()
+        },1000)
+    }
+    colok()</script>
     
 </body>
 </html>

@@ -1,0 +1,20 @@
+body{
+    background-image: url(pexels-tom-fisk-2739666.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+}
+.clock{
+    display: flex;
+    justify-content: center ;
+    align-items: center;
+    height: 100vh;
+    display: flex;
+    font-size: 70px;
+    font-weight:bold;
+
+    margin: auto;
+    font-family:'Times New Roman', Times, serif;
+
+
+}
